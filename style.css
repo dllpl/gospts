@@ -1,0 +1,176 @@
+.container {
+    max-width: 1440px;
+    margin: 50px auto;
+}
+
+.card__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+}
+
+.card:nth-child(-n+4) {
+    margin-bottom: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    background-color: rgba(121, 178, 133, 0.14);
+    border-radius: 30px;
+    padding: 40px 20px;
+}
+
+.card__slider {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.card__slide {}
+
+.card__img {
+    display: block;
+    width: 100%;
+}
+
+.card__prev {
+    top: 40%;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    background-color: silver;
+    border-radius: 30px;
+    margin: 0;
+}
+
+.card__next {
+    top: 40%;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    background-color: silver;
+    border-radius: 30px;
+    margin: 0;
+}
+
+.card__prev::after, .card__next::after {
+    display: block;
+    font-weight: 600;
+    font-size: 9px;
+    color: black;
+}
+
+.card__desc {
+    list-style: none;
+    padding: 0;
+}
+
+.card__desc {
+    margin-bottom: 20px;
+}
+
+.desc__item {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card__title {
+    font-size: 22px;
+}
+
+.card__price {
+    font-size: 18px;
+}
+
+.card__adress {
+    font-size: 18px;
+}
+
+.desc__item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.card__btn {
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #79B285;
+    color: white;
+    border-radius: 32px;
+    border: none;
+    cursor: pointer;
+    padding: 14px 28px;
+}
+
+
+
+/*-----modal-----*/
+.modal__btn {
+    font-size: 18px;
+    line-height: 25px;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0;
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+
+
+.modal-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 60;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    max-width: 900px;
+    height: 500px;
+    box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.modal-overlay--visible {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal--visible {
+    display: flex;
+}
+
+.modal__description {
+    padding: 0px 50px;
+}
+
+.modal__img {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}

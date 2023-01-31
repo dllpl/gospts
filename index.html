@@ -5,73 +5,96 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-            crossorigin="anonymous"></script>
-
-    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="app">
     <div class="container">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col" v-for="items of item">
-                <div class="card h-100">
-                    <div id="carouselExampleFade" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" v-for="item">
-                                <img src="https://stihi.ru/pics/2021/12/27/5057.jpg"
-                                     class="rounded d-block img-fluid mx-auto" alt="...">
-                            </div>
+        <ul class="card__list">
+            <li class="card" v-for="car in items">
+                <div class="card__slider swiper">
+                    <div class="swiper-wrapper">
+                        <div class="card__slide swiper-slide" v-for="photo in car.forSalePhotos">
+                            <img class="card__img" :src="photo" alt="" data-path="default-popup">
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-                                data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-                                data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </button>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">имя</h5>
-                        <p class="card-text">Это более длинная карта С вспомогательным текстом ниже в качестве
-                            естественного перехода к дополнительному контенту. Этот контент немного длиннее.</p>
-                    </div>
+                    <div class="card__prev swiper-button-prev"></div>
+                    <div class="card__next swiper-button-next"></div>
                 </div>
+                <ul class="card__desc">
+                    <li class="desc__item">
+                        <span class="card__title">
+                            {{car.car_brand}}. {{car.car_model}} {{car.year}}г.
+                        </span>
+                    </li>
+                    <li class="desc__item">
+                        <span class="card__price">
+                            {{car.price.toLocaleString('ru-RU',{ minimumFractionDigits: 2 })}}&nbsp;руб.
+                        </span>
+                    </li>
+                    <li class="desc__item">
+                        <span class="card__adress">
+                            {{car.address}}
+                        </span>
+                    </li>
+                </ul>
+
+                <button class="card__btn">Отправить заявку</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="modal-overlay">
+        <div class="modal" data-target="default-popup">
+            <div class="modal__description">
+                <img class="modal__img" src="img/item-1.png" alt="">
             </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Заголовок карточки</h5>
-                        <p class="card-text">Это короткая карточка.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Заголовок карточки</h5>
-                        <p class="card-text">Это более длинная карта С вспомогательным текстом ниже в качестве
-                            естественного перехода к дополнительному контенту.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Заголовок карточки</h5>
-                        <p class="card-text">Это более длинная карта С вспомогательным текстом ниже в качестве
-                            естественного перехода к дополнительному контенту. Этот контент немного длиннее.</p>
-                    </div>
-                </div>
-            </div>
+            <button class="modal__btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0.666641 15.3044L15.3333 0.000153846L16 0.695801L1.33331 16L0.666641 15.3044Z"
+                      fill="black" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0.666695 -0.000125032L15.3334 15.3041L14.6667 15.9998L2.70967e-05 0.695522L0.666695 -0.000125032Z"
+                      fill="black" />
+            </svg>
+            </button>
         </div>
+
+        <div class="modal" data-target="default-popup2">
+            <div class="modal__description">
+                <img class="modal__img" src="img/item-2.png" alt="">
+            </div>
+            <button class="modal__btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0.666641 15.3044L15.3333 0.000153846L16 0.695801L1.33331 16L0.666641 15.3044Z"
+                      fill="black" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0.666695 -0.000125032L15.3334 15.3041L14.6667 15.9998L2.70967e-05 0.695522L0.666695 -0.000125032Z"
+                      fill="black" />
+            </svg>
+            </button>
+        </div>
+
+        <div class="modal" data-target="default-popup3">
+            <div class="modal__description">
+                <img class="modal__img" src="img/item-3.png" alt="">
+            </div>
+            <button class="modal__btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0.666641 15.3044L15.3333 0.000153846L16 0.695801L1.33331 16L0.666641 15.3044Z"
+                      fill="black" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0.666695 -0.000125032L15.3334 15.3041L14.6667 15.9998L2.70967e-05 0.695522L0.666695 -0.000125032Z"
+                      fill="black" />
+            </svg>
+            </button>
+        </div>
+
     </div>
 </div>
 </body>
@@ -93,38 +116,20 @@
                 fetch(url).then(res => {
                     if (res.ok) {
                         res.json().then((data) => {
-                            console.log(data)
-                            this.items = data.data
+
+                            console.log(data.data.models)
+                            this.items = data.data.models.concat(data.data.models,data.data.models,data.data.models)
+                            window.dataOnLoad = true
                         })
                     }
                 })
-            }
+            },
         },
         created() {
             this.getCars()
         }
     }).mount('#app')
 </script>
-<style scoped>
-    .card {
-        background: rgba(121, 178, 133, 0.14);
-        border: none;
-        border-radius: 30px;
-        padding: 20px;
-    }
-
-    .card-img-top {
-        border-radius: 5px;
-    }
-
-    .card-body {
-        margin-top: 10px;
-        padding: 0;
-    }
-
-    img {
-        max-height: 165px;
-    }
-</style>
+<script src="slider.js"></script>
 </html>
 
