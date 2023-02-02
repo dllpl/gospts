@@ -250,6 +250,7 @@ var interval = setInterval(()=>{
 #app .card__img {
     display: block;
     width: 100%;
+    border-radius: 10px;
 }
 
 #app .card__prev {
@@ -390,6 +391,15 @@ var interval = setInterval(()=>{
     width: 70%;
     margin: 0 auto;
     border-radius: 15px;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 15vw;
+    position: relative;
+    transition-property: transform;
+    border-radius:10px;
 }
 
 #app .range-slider {
