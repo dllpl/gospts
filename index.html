@@ -12,7 +12,7 @@
 <body>
 <div id="app">
     <div class="container">
-        <div>
+        <div style="display: flex; align-items: start; flex-wrap: wrap;">
             <div>
                 <div style="font-size: 20px;font-weight: bold;">Поиск марки</div>
                 <input type="text" placeholder="Марка автомобиля" v-model="searchMark" style="min-height: 35px; border-radius: 10px; min-width: 320px; max-width: 500px; border: 1px solid #ddd;">
@@ -399,6 +399,7 @@ var interval = setInterval(()=>{
     max-width: 500px;
     position: relative;
     height: 5em;
+    margin-left: 30px;
 }
 #app .range-slider svg,
 #app .range-slider input[type="range"] {
@@ -525,6 +526,10 @@ var interval = setInterval(()=>{
 
     #app.card:nth-child(-n+6) {
          margin-bottom: 20px;
+    }
+
+    #app .range-slider  {
+        margin-left: 0;
     }
 }
 
