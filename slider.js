@@ -11,41 +11,39 @@ var interval = setInterval(()=>{
         clearInterval(interval)
     }
 }, 500)
-/*---modal---*/
-const slides = document.querySelectorAll('.card__img');
-const modalOverlay = document.querySelector('.modal-overlay ');
-const modals = document.querySelectorAll('.modal');
-const closeBtn = document.querySelectorAll('.modal__btn');
 
-slides.forEach((el) => {
-    el.addEventListener('click', (e) => {
-        let path = e.currentTarget.getAttribute('data-path');
 
-        modals.forEach((el) => {
-            el.classList.remove('modal--visible');
-        });
+    const parent = document.querySelector('.range-slider');
 
-        document.querySelector(`[data-target="${path}"]`).classList.add('modal--visible');
-        modalOverlay.classList.add('modal-overlay--visible');
+    const rangeS = parent.querySelectorAll('input[type="range"]'),
+          numberS = parent.querySelectorAll('input[type="number"]');
+
+    rangeS.forEach((el) => {
+        el.oninput = () => {
+            let slide1 = parseFloat(rangeS[0].value),
+                slide2 = parseFloat(rangeS[1].value);
+
+            if (slide1 > slide2) {
+                [slide1, slide2] = [slide2, slide1];
+            }
+
+            numberS[0].value = slide1;
+            numberS[1].value = slide2;
+        }
     });
-});
 
-modalOverlay.addEventListener('click', (e) => {
-    console.log(e.target);
+    numberS.forEach((el) => {
+        el.oninput = () => {
+            let number1 = parseFloat(numberS[0].value),
+                number2 = parseFloat(numberS[1].value);
 
-    if (e.target == modalOverlay) {
-        modalOverlay.classList.remove('modal-overlay--visible');
-        modals.forEach((el) => {
-            el.classList.remove('modal--visible');
-        });
-    }
-});
+            if (number1 > number2) {
+                let tmp = number1;
+                numberS[0].value = number2;
+                numberS[1].value = tmp;
+            }
 
-closeBtn.forEach((el) => {
-    el.addEventListener('click', (e) => {
-        modals.forEach((el) => {
-            modalOverlay.classList.remove('modal-overlay--visible');
-            el.classList.remove('modal--visible');
-        });
+            rangeS[0].value = number1;
+            rangeS[1].value = number2;
+        }
     });
-});
