@@ -7,18 +7,17 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="app">
     <div class="container">
         <div style="display: flex; align-items: start; flex-wrap: wrap;">
-            <div>
-                <div style="font-size: 20px;font-weight: bold;">Поиск марки</div>
+            <div style="margin-top: 10px;">
+                <div style="font-size: 20px;font-weight: bold; margin-bottom: 20px;">Поиск марки</div>
                 <input type="text" placeholder="Марка автомобиля" v-model="searchMark" style="min-height: 35px; border-radius: 10px; min-width: 320px; max-width: 500px; border: 1px solid #ddd;">
             </div>
-            <div class="range-slider">
-                <div style="font-size: 20px;font-weight: bold;">Цена</div>
+            <div class="range-slider" style="margin-top: 10px;">
+                <div style="font-size: 20px;font-weight: bold; margin-bottom: 20px;">Цена</div>
                 <span>От <input type="number" v-model="searchMin" :min="searchPriceMin" :max="searchPriceMax" step="500">&nbsp;₽</span>
                 <input v-model="searchMin" :min="searchPriceMin" :max="searchPriceMax" step="500" type="range" :value="searchMin">
                 <input v-model="searchMax" :min="searchPriceMin" :max="searchPriceMax" step="500" type="range" :value="searchMax">
@@ -394,11 +393,10 @@ var interval = setInterval(()=>{
 }
 
 #app .range-slider {
-    margin-top: 10px;
     min-width: 320px;
     max-width: 500px;
     position: relative;
-    height: 5em;
+    height: 7em;
     margin-left: 30px;
 }
 #app .range-slider svg,
