@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5b46afc-a0a7-4034-8ed2-07359ab893af" name="Changes" comment="Правка">
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="c5b46afc-a0a7-4034-8ed2-07359ab893af" name="Changes" comment="Правка" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +45,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675428528948</updated>
-      <workItem from="1675428530353" duration="2160000" />
+      <workItem from="1675428530353" duration="2472000" />
     </task>
     <task id="LOCAL-00001" summary="Правка">
       <created>1675428574219</created>
@@ -77,7 +75,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675429570078</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Правка">
+      <created>1675432508627</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675432508627</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Правка">
+      <created>1675432605324</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675432605324</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
